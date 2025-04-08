@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Playfair', serif;
+}
+
+body {
+    background-color: whitesmoke;
+    display: grid;
+    color: rgb(20, 60, 120);
+}
+
+nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid lightsteelblue;
+    padding: 10px;
+    align-content: center;
+}
+
+#content {
+    display: grid;
+    margin: 30px 40px;
+    justify-content: center;
+}
+
+button {
+    background-color: steelblue;
+    color: white;
+    font-size: large;
+    border: none;
+    padding: 7px;
+    border-radius: 3px;
+    width: auto;
+    height: 40px;
+    margin: 5px;
+}
+
+.buttons {
+    margin: 10px;
+}
+
+button:hover {
+    background-color: rgb(93, 157, 176);
+}
+
+img {
+    margin: 10px 0px;
+}
+
+.title {
+    font-size: 70px;
+    text-align: left;
+}
+
+.description {
+    font-size: 30px;
+    margin: 20px;
+}
+
+.logo {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+    margin: 10px 30px;
+}
+
+.tag {
+    font-size: 40px;
+    font-weight: 600;
+    
+}
+
+.text {
+    width: 500px;
+    grid-column: 2 / 3;
+    display: grid;
+    justify-content: center;
+    white-space: pre-wrap;
+}
+
+.menu-content p{
+    margin: 20px 0px;
+}
