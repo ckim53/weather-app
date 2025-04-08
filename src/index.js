@@ -1,8 +1,10 @@
 import './styles.css'
 
+const API_KEY = '' //insert api key here
+
 async function getWeather(location) {
     try {
-        const response = await fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'+ location +'?unitGroup=us&key=M2ZHQRNGG9X3VZB6YYYGJ5TKY&contentType=json', {
+        const response = await fetch('https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'+ location +'?unitGroup=us&key=' + API_KEY + '&contentType=json', {
         'method': 'GET',
         'headers': {},
         'mode': 'cors'});
