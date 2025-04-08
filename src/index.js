@@ -9,8 +9,8 @@ async function getWeather(location) {
 
         const data = await response.json();
         const weather = getInfo(data);
-        console.log(weather);
         displayInfo(weather);
+        userInput.blur();
     }
     catch (err) {
         console.error(err);
@@ -25,8 +25,8 @@ const displayInfo = (weather) => {
     const description = document.getElementById('description');
     location.textContent = weather.address;
     conditions.textContent = weather.conditions
-    time.textContent = weather.time;
-    feelslike.textContent = 'Feels like :' + weather.feelslike;
+    time.textContent = convertMilitaryToStandard(weather.time);
+    feelslike.textContent = 'Feels like: ' + weather.feelslike;
     description.textContent = weather.description;
 }
 
@@ -36,14 +36,15 @@ const getInfo = (data) => {
         conditions: data.currentConditions.conditions,
         time: data.currentConditions.datetime,
         feelslike: data.currentConditions.feelslike,
-        description: data.description + ' Yay!'
+        description: data.description
     }
 }
 
+const userInput = document.getElementById('user-location');
 document.getElementById('user-form').addEventListener('submit', (event) =>
     {
         event.preventDefault();
-        getWeather(document.getElementById('user-location').value);
+        getWeather(userInput.value);
     }
 );
 
@@ -52,4 +53,13 @@ function capitalizeFirstLetter(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
     return string;
-  }
+}
+
+function convertMilitaryToStandard(time) {
+    const [hours, minutes] = time.split(':');
+    const hrs = parseInt(hours);
+    const period = hrs >= 12 ? 'PM' : 'AM';
+    const standardHour = hrs % 12 === 0 ? 12 : hrs % 12;
+    const formattedHour = ('0' + standardHour).slice(-2);
+    return `${formattedHour}:${minutes} ${period}`;
+}
